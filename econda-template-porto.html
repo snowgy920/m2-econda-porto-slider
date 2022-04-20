@@ -1,0 +1,39 @@
+<div class="ec-widget-products">
+    <div class="filterproducts products products-slider list items product-items owl-carousel show-dots-title-right dots-style-1">
+        <% for (ip = 0; ip < products.length; ip++) { %>
+            <div class="item product product-item">
+                <div class="product-item-info type1" data-container="product-grid">
+                    <div class="product photo product-item-photo">
+                        <a href="<%= products[ip].deeplink %>" tabindex="-1" title="<%= products[ip].name %>"><img src="<%= products[ip].iconurl %>" alt="<%= products[ip].name %>" /> </a>
+                    </div>
+                    <div class="product details product-item-details">
+                        <strong class="product name product-item-name">
+                            <a class="product-item-link" href="<%= products[ip].deeplink %>"><%= products[ip].name %></a>
+                        </strong>
+                        <% if(products[ip].oldprice) { %>
+                            <div class="price-box price-final_price">
+                                <span class="old-price">
+                                    <span class="price-container price-final_price tax weee">
+                                        <span data-price-type="oldPrice" class="price-wrapper"><span class="price"><%= products[ip].oldprice %></span></span>
+                                    </span>
+                                </span>
+                                <span class="special-price">
+                                    <span class="price-container price-final_price tax weee">
+                                        <span data-price-type="finalPrice" class="price-wrapper"><span class="price"><%= products[ip].price %></span></span>
+                                    </span>
+                                </span>
+                            </div>
+
+                        <% } else { %>
+                            <div class="price-box price-final_price">
+                                <span class="price-container price-final_price tax weee">
+                                    <span data-price-type="finalPrice" class="price-wrapper"><span class="price"><%= products[ip].price %></span></span>
+                                </span>
+                            </div>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</div>
